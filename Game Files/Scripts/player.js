@@ -1,6 +1,6 @@
 window.onload = function() {
-    const canvas = document.getElementById("canvas")
-    const ctx = canvas.getContext("2d")
+    canvas = document.getElementById("canvas")
+    ctx = canvas.getContext("2d")
 
     var x = canvas.width / 2 - 20
     var y = canvas.height / 2 - 20
@@ -29,12 +29,12 @@ window.onload = function() {
         else if (y > canvas.height - 50) {
             y = canvas.height - 50
         }
-
+        
+        ctx.beginPath()
         ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-        var img = new Image()
-        img.src = "https://toppng.com/uploads/preview/happy-face-emoji-printable-11549848555cni0o8ms6p.png"
-        ctx.drawImage(img, x, y, 50, 50)
+        var sprite = new Image()
+        sprite.src = "./Images/evil-turtle-mob.png"
+        ctx.drawImage(sprite, x, y, 50, 50)
         
         requestAnimationFrame(draw)
     }
