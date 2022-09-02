@@ -1,9 +1,9 @@
 window.onload = function() {
-    canvas = document.getElementById("canvas")
-    ctx = canvas.getContext("2d")
+    const canvas = document.getElementById("canvas")
+    const ctx = canvas.getContext("2d")
 
-    var x = canvas.width / 2 - 20
-    var y = canvas.height / 2 - 20
+    var spriteX = canvas.width / 2 - 20
+    var spriteY = canvas.height / 2 - 20
     var speed = 2
     var vxr = 0
     var vxl = 0
@@ -11,30 +11,30 @@ window.onload = function() {
     var vyd = 0
 
     function draw() {
-        x += vxr
-        x += vxl
-        y += vyu
-        y += vyd
+        spriteX += vxr
+        spriteX += vxl
+        spriteY += vyu
+        spriteY += vyd
         
-        if (x < 0) {
-            x = 0
+        if (spriteX < 0) {
+            spriteX = 0
         }
-        else if (x > canvas.width - 50) {
-            x = canvas.width - 50
+        else if (spriteX > canvas.width - 50) {
+            spriteX = canvas.width - 50
         }
 
-        if (y < 0) {
-            y = 0
+        if (spriteY < 0) {
+            spriteY = 0
         }
-        else if (y > canvas.height - 50) {
-            y = canvas.height - 50
+        else if (spriteY > canvas.height - 50) {
+            spriteY = canvas.height - 50
         }
         
         ctx.beginPath()
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         var sprite = new Image()
         sprite.src = "./Images/evil-turtle-mob.png"
-        ctx.drawImage(sprite, x, y, 50, 50)
+        ctx.drawImage(sprite, spriteX, spriteY, 50, 50)
         
         requestAnimationFrame(draw)
     }
